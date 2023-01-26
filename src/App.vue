@@ -2,10 +2,10 @@
   <main>
     <form @submit.prevent="addNewTodo">
       Add a todo:
-      <input type="text" placeholder="e.g. make a video" >
+      <input type="text" placeholder="e.g. make a video">
       <button>Add</button>
     </form>
-    <TodoComponent :todoLists="todos"/>
+    <TodoComponent :todoLists="todos"/> <!-- todos passed as props -->
   </main>
 </template>
 
