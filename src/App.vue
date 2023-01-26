@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <main>
+    <form @submit.prevent="addNewTodo">
+      Add a todo:
+      <input type="text" placeholder="e.g. make a video" >
+      <button>Add</button>
+    </form>
+    <TodoComponent :x.prop="todos"/>
+  </main>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+/*eslint-disable*/
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+import TodoComponent from './components/TodoComponent.vue'
+import {ref} from 'vue'
+
+const todos = ref([{name:"John"}])
+const newTodo = ref('')
+
+/* function addNewTodo(){
+  todos.value.push({
+    title: newTodo
+  })
+} */
+
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+
+<style scoped>
+  main{
+    width: 600px;
+    margin: 0 auto;
+  }
 </style>
