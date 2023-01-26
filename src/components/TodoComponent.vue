@@ -1,12 +1,13 @@
 <template>
-    <main>
+    <section>
         <h3>List of Todos: </h3>
-        {{ x }}
-    </main>
+        {{ todoLists }}
+    </section>
 </template>
 
 <script setup>
-    
+    /* eslint-disable */
+    defineProps({todoLists:Object}) //or defineProps(['todoLists'])
 </script>
 
 <style>
