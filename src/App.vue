@@ -31,12 +31,14 @@ const todos = ref([
   }
 ])
 const newTodo = ref('')
+const newId = 4
 
-/* function addNewTodo(){
+function addNewTodo(){
   todos.value.push({
+    id: newId++,
     title: newTodo
   })
-} */
+}
 
 </script>
 
