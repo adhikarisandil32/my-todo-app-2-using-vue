@@ -2,7 +2,7 @@
   <main>
     <form @submit.prevent="addNewTodo">
       Add a todo:
-      <input type="text" placeholder="e.g. make a video">
+      <input type="text" placeholder="e.g. make a video" v-model="newTodo">
       <button>Add</button>
     </form>
     <TodoComponent :todoLists="todos"/> <!-- todos passed as props -->
@@ -15,7 +15,8 @@
 import TodoComponent from './components/TodoComponent.vue'
 import {ref} from 'vue'
 
-
+//boilerplate todos. its is the list of todos with id and title
+//this is where after click event, the id and title of todo is pushed
 const todos = ref([
   {
     id:"1",
@@ -30,14 +31,16 @@ const todos = ref([
     title: "create a youtube channel"
   }
 ])
-const newTodo = ref('')
-const newId = 4
+
+const newTodo = ref('') //newTodos, specially titles
+let newId = 4 //id of newTodos
 
 function addNewTodo(){
   todos.value.push({
     id: newId++,
-    title: newTodo
+    title: newTodo.value
   })
+  newTodo.value = '';
 }
 
 </script>
