@@ -5,7 +5,7 @@
       <input type="text" placeholder="e.g. make a video" v-model="newTodo">
       <button>Add</button>
     </form>
-    <TodoComponent v-model:todoLists="todos"/> <!-- todos passed as props -->
+    <TodoComponent :todoLists="todos"/> <!-- todos passed as props -->
   </main>
 </template>
 
@@ -31,7 +31,6 @@ function addNewTodo(){
     title: newTodo.value
   })
   newTodo.value = '';
-  console.log(todos)
 }
 
 </script>

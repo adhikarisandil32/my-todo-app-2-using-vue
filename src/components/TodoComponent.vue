@@ -4,7 +4,7 @@
         <h3>List of Todos: </h3>
         <ul>
             <li v-for="(eachTodo, idx) in todoLists" :key="eachTodo.id">
-                {{eachTodo.title}}
+                {{ eachTodo.title }}
                 <!-- <button @click="removeClicked(todoLists, key)">Remove</button> -->
                 <button @click="editClicked(idx)">Edit</button>
                 <button @click="removeClicked(idx)">Remove</button>
@@ -15,7 +15,7 @@
 
 <script setup>
     /* eslint-disable */
-
+    
     //this is how we receive props directly into script
     const props = defineProps({todoLists:Object}) //or defineProps(['todoLists'])
 
@@ -31,7 +31,6 @@
         }
         props.todoLists[editFrom].title = newInputText;
     }
-
     //function for button with event action removeClicked(todoLists, key)
     /* let removeClicked = (todoLists, removeFrom) => {
         todoLists.splice(removeFrom, 1)
