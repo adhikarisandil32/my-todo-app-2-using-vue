@@ -17,27 +17,16 @@ import {ref} from 'vue'
 
 //boilerplate todos. its is the list of todos with id and title
 //this is where after click event, the id and title of todo is pushed
-const todos = ref([
-  {
-    id:"1",
-    title:"make a video"
-  },
-  {
-    id:"2",
-    title:"edit the video"
-  },
-  {
-    id: "3",
-    title: "create a youtube channel"
-  }
-])
+const todos = ref([])
 
 const newTodo = ref('') //newTodos, specially titles
-let newId = 4 //id of newTodos
 
 function addNewTodo(){
+  if(newTodo.value.trim() === ""){
+    return
+  }
   todos.value.push({
-    id: newId++,
+    id: todos.length,
     title: newTodo.value
   })
   newTodo.value = '';
