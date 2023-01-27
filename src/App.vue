@@ -5,7 +5,7 @@
       <input type="text" placeholder="e.g. make a video" v-model="newTodo">
       <button>Add</button>
     </form>
-    <TodoComponent :todoLists="todos"/> <!-- todos passed as props -->
+    <TodoComponent v-model:todoLists="todos"/> <!-- todos passed as props -->
   </main>
 </template>
 
@@ -18,6 +18,7 @@ import {ref} from 'vue'
 //boilerplate todos. its is the list of todos with id and title
 //this is where after click event, the id and title of todo is pushed
 const todos = ref([])
+let newTodoId = ref(0)
 
 const newTodo = ref('') //newTodos, specially titles
 
@@ -26,10 +27,11 @@ function addNewTodo(){
     return
   }
   todos.value.push({
-    id: todos.length,
+    id: newTodoId.value++,
     title: newTodo.value
   })
   newTodo.value = '';
+  console.log(todos)
 }
 
 </script>
